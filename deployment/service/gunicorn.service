@@ -1,0 +1,21 @@
+[Unit]
+Description=Gunicorn daemon
+After=network.target
+StartLimitInterval=30
+StartLimitBurst=5
+
+[Service]
+PIDFile=/run/gunicorn.pid
+User=gunicorn
+Group=gunicorn
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/ubuntu/app
+ExecStart=/home/ubuntu/venv/bin/gunicorn -c /home/ubuntu/gunicorn-config.py djangoapp.wsgi
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+Restart=always
+RestartSec=3
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

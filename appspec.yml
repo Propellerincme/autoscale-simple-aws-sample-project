@@ -10,9 +10,7 @@ files:
   # Gunicorn systemd
   - source: deployment/service/gunicorn.service
     destination: /etc/systemd/system/
-  - source: deployment/service/gunicorn.socket
-    destination: /etc/systemd/system/
-
+    
 permissions:
   - object: /home/ubuntu/app
     owner: ubuntu

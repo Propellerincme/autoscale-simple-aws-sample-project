@@ -2,7 +2,7 @@
 import multiprocessing
 
 # bind = "unix:/run/gunicorn.socket" # with nginx
-bind = "0.0.0.0:80"
+bind = "0.0.0.0:8000"
 # pidfile = '/run/gunicorn.pid'
 # errorlog = '/home/ubuntu/gunicorn.log'
 loglevel = 'info'
